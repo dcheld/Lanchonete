@@ -6,4 +6,8 @@ services:
     build:
       context: .
       dockerfile: Pedido.API/Dockerfile
- 
+  angular:
+    image: ${DOCKER_REGISTRY}angular
+    build:
+      context: .
+      dockerfile: pedido-ui/Dockerfile
