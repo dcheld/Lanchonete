@@ -4,5 +4,7 @@ services:
   pedidoapi:
     image: pedidoapi
     build:
-      context: .
+      context: ./Pedido
       dockerfile: Pedido.API/Dockerfile
+    ports:
+      - "5000:80"

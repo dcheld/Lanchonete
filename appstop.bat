@@ -1,0 +1,1 @@
+docker-compose -f ".\docker-compose.yml" -f ".\docker-compose.angular.yml" -p applanchonete --no-ansi down --rmi local --remove-orphan

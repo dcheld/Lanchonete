@@ -5,6 +5,3 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTPS_PORT=5001
-    ports:
-      - "5000:80"
-      - "5001:443"
