@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pedido.Dominio.Servico
 {
-    public class IngredienteFactory
+    public class LancheItemFactory
     {
         public enum IngredienteEnum
         {
@@ -15,29 +15,29 @@ namespace Pedido.Dominio.Servico
             Queijo
         }
 
-        public static Ingrediente Alface()
+        public static LancheItem Alface(int quantidade = 1)
         {
-            return new Ingrediente((int)IngredienteEnum.Alface, "Alface", 0.40m);
+            return new LancheItem((int)IngredienteEnum.Alface, "Alface", 0.40m, quantidade);
         }
 
-        public static Ingrediente Bacon()
+        public static LancheItem Bacon(int quantidade = 1)
         {
-            return new Ingrediente((int)IngredienteEnum.Bacon, "Bacon", 2.00m);
+            return new LancheItem((int)IngredienteEnum.Bacon, "Bacon", 2.00m, quantidade);
         }
 
-        public static Ingrediente HamburgerCarne()
+        public static LancheItem HamburgerCarne(int quantidade = 1)
         {
-            return new Ingrediente((int)IngredienteEnum.HamburgerCarne, "Hamburger de carne", 3.00m);
+            return new LancheItem((int)IngredienteEnum.HamburgerCarne, "Hamburger de carne", 3.00m, quantidade);
         }
 
-        public static Ingrediente Ovo()
+        public static LancheItem Ovo(int quantidade = 1)
         {
-            return new Ingrediente((int)IngredienteEnum.Ovo, "Ovo", 0.80m);
+            return new LancheItem((int)IngredienteEnum.Ovo, "Ovo", 0.80m, quantidade);
         }
 
-        public static Ingrediente Queijo()
+        public static LancheItem Queijo(int quantidade = 1)
         {
-            return new Ingrediente((int)IngredienteEnum.Queijo, "Queijo", 1.50m);
+            return new LancheItem((int)IngredienteEnum.Queijo, "Queijo", 1.50m, quantidade);
         }
     }
 }

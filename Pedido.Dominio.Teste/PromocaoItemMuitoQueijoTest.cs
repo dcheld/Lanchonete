@@ -24,7 +24,7 @@ namespace Pedido.Dominio.Teste
         private Pedido ObterPedido(int quantidadeHamburgerCarne)
         {
             var pedido = new Pedido();
-            pedido.Adicionar(IngredienteFactory.Queijo(), quantidadeHamburgerCarne);
+            pedido.Adicionar(LancheItemFactory.Queijo(quantidadeHamburgerCarne));
 
             return pedido;
         }

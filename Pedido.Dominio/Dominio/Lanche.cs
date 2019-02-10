@@ -13,13 +13,13 @@ namespace Pedido.Dominio
 
         public string Nome { get; private set; }
         
-        public IReadOnlyList<Ingrediente> Ingredientes { get; private set; }
+        public IReadOnlyList<LancheItem> LancheItens { get; private set; }
 
-        public Lanche(int id, string nome, IList<Ingrediente> ingredientes)
+        public Lanche(int id, string nome, IList<LancheItem> ingredientes)
         {
             Id = id;
             Nome = nome;
-            Ingredientes = new ReadOnlyCollection<Ingrediente>(ingredientes);
+            LancheItens = new ReadOnlyCollection<LancheItem>(ingredientes);
         }
     }
 }

@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+   angular:
+    image: angular
+    build:
+      context: .
+      dockerfile: pedido-ui/Dockerfile
+    ports:
+      - "80:80"

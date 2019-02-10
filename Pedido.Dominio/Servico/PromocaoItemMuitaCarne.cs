@@ -10,7 +10,7 @@ namespace Pedido.Dominio.Servico
         public int IdPromocao => 2;
         private Pedido pedido;
 
-        private PedidoItem pedidoItemCarne;
+        private LancheItem pedidoItemCarne;
 
         public decimal Desconto { get; private set; }
 

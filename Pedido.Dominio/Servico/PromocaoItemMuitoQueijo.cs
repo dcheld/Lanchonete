@@ -7,7 +7,7 @@ namespace Pedido.Dominio.Servico
     public class PromocaoItemMuitoQueijo : IPromocaoItem
     {
         private Pedido pedido;
-        private PedidoItem pedidoItemCarne;
+        private LancheItem pedidoItemCarne;
 
         public int IdPromocao => 3;
         public decimal Desconto { get; private set; }

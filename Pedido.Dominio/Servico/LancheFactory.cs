@@ -16,11 +16,11 @@ namespace Pedido.Dominio.Servico
 
         public static Lanche XBacon()
         {
-            var itens = new List<Ingrediente>()
+            var itens = new List<LancheItem>()
             {
-                IngredienteFactory.Bacon(),
-                IngredienteFactory.HamburgerCarne(),
-                IngredienteFactory.Queijo(),
+                LancheItemFactory.Bacon(),
+                LancheItemFactory.HamburgerCarne(),
+                LancheItemFactory.Queijo(),
             };
 
             return new Lanche((int)LanchesEnum.XBacon, "X-Bacon", itens);
@@ -28,38 +28,38 @@ namespace Pedido.Dominio.Servico
         
         public static Lanche XBurger()
         {
-            var itens = new List<Ingrediente>()
+            var itens = new List<LancheItem>()
             {
-                IngredienteFactory.HamburgerCarne(),
-                IngredienteFactory.Queijo(),
+                LancheItemFactory.HamburgerCarne(),
+                LancheItemFactory.Queijo(),
             };
 
-            return new Lanche((int)LanchesEnum.XBacon, "X-Burger", itens);
+            return new Lanche((int)LanchesEnum.XBurger, "X-Burger", itens);
         }
 
         public static Lanche XEgg()
         {
-            var itens = new List<Ingrediente>()
+            var itens = new List<LancheItem>()
             {
-                IngredienteFactory.Ovo(),
-                IngredienteFactory.HamburgerCarne(),
-                IngredienteFactory.Queijo(),
+                LancheItemFactory.Ovo(),
+                LancheItemFactory.HamburgerCarne(),
+                LancheItemFactory.Queijo(),
             };
 
-            return new Lanche((int)LanchesEnum.XBacon, "X-Egg", itens);
+            return new Lanche((int)LanchesEnum.XEgg, "X-Egg", itens);
         }
 
         public static Lanche XEggBacon()
         {
-            var itens = new List<Ingrediente>()
+            var itens = new List<LancheItem>()
             {
-                IngredienteFactory.Bacon(),
-                IngredienteFactory.Ovo(),
-                IngredienteFactory.HamburgerCarne(),
-                IngredienteFactory.Queijo(),
+                LancheItemFactory.Bacon(),
+                LancheItemFactory.Ovo(),
+                LancheItemFactory.HamburgerCarne(),
+                LancheItemFactory.Queijo(),
             };
 
-            return new Lanche((int)LanchesEnum.XBacon, "X-Egg Bacon", itens);
+            return new Lanche((int)LanchesEnum.XEggBacon, "X-Egg Bacon", itens);
         }
     }
 }

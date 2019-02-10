@@ -15,11 +15,11 @@ namespace Pedido.Dominio.Teste
         private Lanche lanche;
         public PerdidoServicoTest()
         {
-            lanche = new Lanche(1000, "meu lanche", new List<Ingrediente>()
+            lanche = new Lanche(1000, "meu lanche", new List<LancheItem>()
             {
-                IngredienteFactory.Alface(),
-                IngredienteFactory.Bacon(),
-                IngredienteFactory.HamburgerCarne(),
+                LancheItemFactory.Alface(),
+                LancheItemFactory.Bacon(),
+                LancheItemFactory.HamburgerCarne(),
             });
         }
 
@@ -41,7 +41,7 @@ namespace Pedido.Dominio.Teste
             var pedidoService = new PedidoServico(promocaoCalculadora);
             var pedido = new Pedido(lanche);
 
-            pedido.Adicionar(IngredienteFactory.HamburgerCarne(), quantidadeHamburgerCarne);
+            pedido.Adicionar(LancheItemFactory.HamburgerCarne(quantidadeHamburgerCarne));
             pedidoService.FecharPedido(pedido, inflacao);
             Assert.Equal(valor, pedido.Valor);
         }
@@ -58,12 +58,12 @@ namespace Pedido.Dominio.Teste
             var pedidoService = new PedidoServico(promocaoCalculadora);
             var pedido = new Pedido(lanche);
 
-            pedido.Adicionar(IngredienteFactory.HamburgerCarne(), 3);
+            pedido.Adicionar(LancheItemFactory.HamburgerCarne(3));
             pedidoService.FecharPedido(pedido, inflacao);
             Assert.Equal(14.4M, pedido.Valor);
 
 
-            pedido.Remover(IngredienteFactory.HamburgerCarne(), quantidadeHamburgerCarneRemover);
+            pedido.Remover(LancheItemFactory.HamburgerCarne(quantidadeHamburgerCarneRemover));
             pedidoService.FecharPedido(pedido, inflacao);
             Assert.Equal(valor, pedido.Valor);
         }

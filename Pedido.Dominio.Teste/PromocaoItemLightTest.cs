@@ -36,10 +36,10 @@ namespace Pedido.Dominio.Teste
         private Pedido ObterPedido(int quantidadeAlface, int quantidadeBacon)
         {
             var pedido = new Pedido();
-            pedido.Adicionar(IngredienteFactory.Alface(), quantidadeAlface);
-            pedido.Adicionar(IngredienteFactory.Bacon(), quantidadeBacon);
-            pedido.Adicionar(IngredienteFactory.HamburgerCarne(), 1);
-            pedido.Adicionar(IngredienteFactory.Queijo(), 1);
+            pedido.Adicionar(LancheItemFactory.Alface(quantidadeAlface));
+            pedido.Adicionar(LancheItemFactory.Bacon(quantidadeBacon));
+            pedido.Adicionar(LancheItemFactory.HamburgerCarne(1));
+            pedido.Adicionar(LancheItemFactory.Queijo(1));
             pedido.Calcular();
 
             return pedido;

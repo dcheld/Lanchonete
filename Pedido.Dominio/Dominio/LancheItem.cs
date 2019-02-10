@@ -2,18 +2,23 @@
 
 namespace Pedido.Dominio
 {
-    public class PedidoItem
+    public class LancheItem
     {
         public Ingrediente Ingrediente { get; private set; }
-        public int Quantidade { get; private set; } = 1;
+        public int Quantidade { get; private set; }
         public decimal Valor { get; private set; }
 
-        public PedidoItem(Ingrediente ingrediente)
+        public LancheItem(int id, string nome, decimal valor, int quantidade=1):
+            this(new Ingrediente(id, nome, valor), quantidade)
         {
-            Ingrediente = ingrediente;
         }
 
-        public PedidoItem(Ingrediente ingrediente, int quantidade)
+        public LancheItem(Ingrediente ingrediente):
+            this(ingrediente, 1)
+        {
+        }
+
+        public LancheItem(Ingrediente ingrediente, int quantidade)
         {
             Ingrediente = ingrediente;
             Quantidade = quantidade;
