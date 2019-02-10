@@ -39,5 +39,15 @@ namespace Pedido.Dominio.Servico
         {
             return new LancheItem((int)IngredienteEnum.Queijo, "Queijo", 1.50m, quantidade);
         }
+
+        public static IList<LancheItem> Todos()
+             => new List<LancheItem>
+             {
+                 Alface(),
+                 Bacon(),
+                 HamburgerCarne(),
+                 Ovo(),
+                 Queijo(),
+             };
     }
 }

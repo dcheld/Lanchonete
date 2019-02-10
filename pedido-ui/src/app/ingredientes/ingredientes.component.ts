@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { LancheModel } from './../lanche/lanche-model';
+import { PedidoService } from '../servico/pedido.service';
+import { LancheModel } from '../model/lanche-model';
 
 @Component({
   selector: 'app-ingredientes',
@@ -9,10 +10,11 @@ import { LancheModel } from './../lanche/lanche-model';
 })
 export class IngredientesComponent implements OnInit {
 
-  @Input()
-  public lanche = new LancheModel();
+  @Input() public lanche: LancheModel = new LancheModel();
 
-  constructor() { }
+  @Output() public cancelar: EventEmitter<any> = new EventEmitter();
+
+  constructor(private pedidoService: PedidoService) { }
 
   ngOnInit() {
   }
@@ -22,6 +24,10 @@ export class IngredientesComponent implements OnInit {
   }
 
   onSubmit() {
+    this.pedidoService.inserir(this.lanche).subscribe();
+  }
 
+  onCancelar() {
+    this.cancelar.emit(null);
   }
 }

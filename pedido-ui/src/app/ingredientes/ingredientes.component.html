@@ -18,5 +18,7 @@
         </tr>
       </tbody>
     </table>
+    <button type="submit" [disabled]='!lancheSelecioando()' class="btn btn-primary">Finalizar Pedido</button> 
+    <button type="submit" class="btn btn-link" (click)='onCancelar()' >cancelar</button>
   </form>
 </div>

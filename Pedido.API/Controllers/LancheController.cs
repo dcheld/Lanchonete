@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pedido.Dominio;
 using Pedido.Dominio.Interface;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using System.Collections.Generic;
 
 namespace Pedido.API.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class LancheController : Controller
     {
         private readonly ILancheService lancheService;
@@ -20,11 +16,16 @@ namespace Pedido.API.Controllers
             this.lancheService = lancheService;
         }
 
-        // GET: api/<controller>
         [HttpGet]
         public IEnumerable<Lanche> Get()
         {
             return lancheService.ObterLanches();
+        }
+
+        [HttpGet("[action]")]
+        public IEnumerable<LancheItem> Itens()
+        {
+            return lancheService.ObterLancheItem();
         }
     }
 }

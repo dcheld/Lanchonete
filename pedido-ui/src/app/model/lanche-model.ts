@@ -1,4 +1,4 @@
-import { LancheItemModel } from '../ingredientes/lanche-item-model';
+import { LancheItemModel } from './lanche-item-model';
 
 export class LancheModel {
     id: number;

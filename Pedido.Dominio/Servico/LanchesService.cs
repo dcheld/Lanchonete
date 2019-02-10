@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Pedido.Dominio.Interface;
+﻿using Pedido.Dominio.Interface;
+using System.Collections.Generic;
 
 namespace Pedido.Dominio.Servico
 {
@@ -8,12 +8,17 @@ namespace Pedido.Dominio.Servico
         public IList<Lanche> ObterLanches()
         {
             return new List<Lanche>()
-           {
+            {
                 LancheFactory.XBacon(),
                 LancheFactory.XBurger(),
                 LancheFactory.XEgg(),
                 LancheFactory.XEggBacon(),
-           };
+            };
+        }
+
+        public IList<LancheItem> ObterLancheItem()
+        {
+            return LancheItemFactory.Todos();
         }
     }
 }

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { LancheService } from './lanche.service';
-import { LancheModel } from './lanche-model';
+import { LancheService } from '../servico/lanche.service';
+import { LancheModel } from '../model/lanche-model';
+import { LancheItemModel } from '../model/lanche-item-model';
 
 @Component({
   selector: 'app-lanche',
@@ -14,13 +15,26 @@ export class LancheComponent implements OnInit {
 
   public lanches$: Observable<LancheModel>;
   public lancheSelecionado: LancheModel;
+
+  private lancheItens: LancheItemModel[];
   constructor(private lancheService: LancheService) { }
 
   ngOnInit() {
     this.lanches$ = this.lancheService.obterLanches();
+    this.lancheService.obterTodosItensLanche()
+      .subscribe(lancheItens => this.lancheItens = lancheItens);
   }
 
   selecionarLanche(lanche: LancheModel) {
     this.lancheSelecionado = lanche;
+  }
+
+  novoLanche() {
+    this.lancheSelecionado = new LancheModel();
+    this.lancheSelecionado.lancheItens = this.lancheItens;
+  }
+
+  onCancelar() {
+    this.lancheSelecionado = null;
   }
 }
