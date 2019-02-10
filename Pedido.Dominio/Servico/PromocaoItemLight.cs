@@ -7,20 +7,17 @@ namespace Pedido.Dominio.Servico
 {
     public class PromocaoItemLight : IPromocaoItem
     {
-        public int IdPromocao => 1;
         private Pedido pedido;
-
         private decimal Percentual = 0.1m;
+
+        public int IdPromocao => 1;
         public decimal Desconto { get; private set; }
 
-        public void Calcular(Pedido pedido)
+        public void Registrar(Pedido pedido)
         {
             this.pedido = pedido;
-            if(TemAlface() && !TemBacon())
-            {
-                Desconto = pedido.ValorItem * Percentual;
+            if(TemAlface() && ! TemBacon())
                 pedido.AdicionarPromocao(this);
-            }
         }
 
         private bool TemAlface()
@@ -33,6 +30,11 @@ namespace Pedido.Dominio.Servico
         {
             int idIngredienteBacon = (int)IngredienteEnum.Bacon;
             return pedido.PedidoItens.Any(item => item.Ingrediente.Id == idIngredienteBacon);
+        }
+
+        public void Calcular()
+        {
+            Desconto = pedido.Itens * Percentual;
         }
     }
 }

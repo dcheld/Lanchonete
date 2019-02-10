@@ -1,4 +1,5 @@
-﻿using Pedido.Dominio.Servico;
+﻿using Pedido.Dominio.Fabrica;
+using Pedido.Dominio.Servico;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,8 +19,7 @@ namespace Pedido.Dominio.Teste
         public void Desconto10PorCento()
         {
             var pedido = ObterPedido(1, 0);
-            promocao.Calcular(pedido);
-            Assert.NotEqual(0, promocao.Desconto);
+            Assert.NotEqual(0, pedido.Desconto);
         }
 
         [Theory]
@@ -29,8 +29,8 @@ namespace Pedido.Dominio.Teste
         public void SemDescontoQuandoNaoTemAlfaceOuTemBacon(int quantidadeAlface, int quantidadeBacon)
         {
             var pedido = ObterPedido(quantidadeAlface, quantidadeBacon);
-            promocao.Calcular(pedido);
-            Assert.Equal(0, promocao.Desconto);
+           
+            Assert.Equal(0, pedido.Desconto);
         }
 
         private Pedido ObterPedido(int quantidadeAlface, int quantidadeBacon)
@@ -40,6 +40,7 @@ namespace Pedido.Dominio.Teste
             pedido.Adicionar(LancheItemFactory.Bacon(quantidadeBacon));
             pedido.Adicionar(LancheItemFactory.HamburgerCarne(1));
             pedido.Adicionar(LancheItemFactory.Queijo(1));
+            promocao.Registrar(pedido);
             pedido.Calcular();
 
             return pedido;

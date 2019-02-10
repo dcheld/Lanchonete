@@ -7,31 +7,29 @@ namespace Pedido.Dominio.Servico
     public class PromocaoItemMuitoQueijo : IPromocaoItem
     {
         private Pedido pedido;
-        private LancheItem pedidoItemCarne;
+        private LancheItem pedidoItemQueijo;
 
         public int IdPromocao => 3;
         public decimal Desconto { get; private set; }
 
-        public void Calcular(Pedido pedido)
+        public void Registrar(Pedido pedido)
         {
             this.pedido = pedido;
-            QuantidadeCarne();
-            Valor();
+            QuantidadeQueijo();
+            if (pedidoItemQueijo.Quantidade >= 3)
+                pedido.AdicionarPromocao(this);
         }
 
-        private void QuantidadeCarne()
+        private void QuantidadeQueijo()
         {
             var idIngredienteCarne = (int)IngredienteEnum.Queijo;
-            pedidoItemCarne = pedido.PedidoItens.FirstOrDefault(c => c.Ingrediente.Id == idIngredienteCarne);
+            pedidoItemQueijo = pedido.PedidoItens.FirstOrDefault(c => c.Ingrediente.Id == idIngredienteCarne);
         }
 
-        private void Valor()
+        public void Calcular()
         {
-            if (pedidoItemCarne != null)
-            {
-                var quantidadePromocao = pedidoItemCarne.Quantidade / 3;
-                Desconto = quantidadePromocao * pedidoItemCarne.Ingrediente.Valor;
-            }
+            var quantidadePromocao = pedidoItemQueijo.Quantidade / 3;
+            Desconto = quantidadePromocao * pedidoItemQueijo.Ingrediente.Valor;
         }
     }
 }

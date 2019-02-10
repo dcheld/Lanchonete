@@ -1,4 +1,5 @@
-﻿using Pedido.Dominio.Servico;
+﻿using Pedido.Dominio.Fabrica;
+using Pedido.Dominio.Servico;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,7 +26,8 @@ namespace Pedido.Dominio.Teste
         public void DescotoMuitaCarne(int quantidadeHamburgerCarne, decimal valorDesconto)
         {
             var pedido = ObterPedido(quantidadeHamburgerCarne);
-            promocao.Calcular(pedido);
+            promocao.Registrar(pedido);
+            promocao.Calcular();
             Assert.Equal(valorDesconto, promocao.Desconto);
         }
 

@@ -1,4 +1,5 @@
-﻿using Pedido.Dominio.Interface;
+﻿using Pedido.Dominio.Fabrica;
+using Pedido.Dominio.Interface;
 using System.Collections.Generic;
 
 namespace Pedido.Dominio.Servico

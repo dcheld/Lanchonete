@@ -20,7 +20,7 @@ namespace Pedido.Dominio
 
         public void Calcular(Pedido pedido)
         {
-            Valor = pedido.Valor * PorcentagemInflacao;
+            Valor = pedido.Total * PorcentagemInflacao;
         }
     }
 }

@@ -8,23 +8,24 @@ namespace Pedido.Dominio
 {
     public class Pedido
     {
-        public decimal ValorItem { get; private set; }
-        public decimal ValorDesconto { get; private set; }
-        public decimal Valor { get; private set; }
+        public int Id { get; private set; }
+        public decimal Itens { get; private set; }
+        public decimal Desconto { get; private set; }
+        public decimal Total { get; private set; }
         public Inflacao inflacao;
-        
+
         private IList<IPromocaoItem> PromocaoItems { get; set; } = new List<IPromocaoItem>();
 
         private IList<LancheItem> _pedidoItems = new List<LancheItem>();
         public IReadOnlyList<LancheItem> PedidoItens => new ReadOnlyCollection<LancheItem>(_pedidoItems);
 
-
         public Pedido()
         {
-
+            Random random = new Random();
+            Id = random.Next();
         }
 
-        public Pedido(Lanche lanche)
+        public Pedido(Lanche lanche) : this()
         {
             foreach (var lancheItem in lanche.LancheItens)
                 Adicionar(lancheItem);
@@ -32,7 +33,7 @@ namespace Pedido.Dominio
 
         public void Adicionar(Ingrediente ingrediente, int quantidade)
         {
-            if(quantidade > 0)
+            if (quantidade > 0)
                 Adicionar(new LancheItem(ingrediente, quantidade));
         }
 
@@ -54,16 +55,15 @@ namespace Pedido.Dominio
                 PromocaoItems.Add(promocaoItem);
         }
 
-        public void Remover (LancheItem item)
+        public void Remover(LancheItem item)
         {
             var pedidoItemExitente = _pedidoItems.FirstOrDefault(f => f.Ingrediente.Id == item.Ingrediente.Id);
             if (pedidoItemExitente != null)
                 pedidoItemExitente.Remover(item.Quantidade);
         }
 
-
-
         #region Calculos
+
         public void Calcular()
         {
             CalcularItem();
@@ -73,36 +73,37 @@ namespace Pedido.Dominio
 
         private void CalcularItem()
         {
-            ValorItem = 0;
+            Itens = 0;
             foreach (var item in _pedidoItems)
             {
                 item.Calcular();
-                ValorItem += item.Valor;
+                Itens += item.Valor;
             }
         }
 
         private void CalcularDesconto()
         {
-            ValorDesconto = 0;
-            foreach (var promocao in PromocaoItems)
+            Desconto = 0;
+            foreach (var promocaoItem in PromocaoItems)
             {
-                promocao.Calcular(this);
-                ValorDesconto = promocao.Desconto;
+                promocaoItem.Calcular();
+                Desconto += promocaoItem.Desconto;
             }
         }
 
         private void CalcularTotal()
         {
-            Valor = ValorItem - ValorDesconto;
+            Total = Itens - Desconto;
             if (inflacao != null)
-                Valor += inflacao.Valor;
+                Total += inflacao.Valor;
         }
 
         public void Aplicar(Inflacao inflacao)
         {
             this.inflacao = inflacao;
-            inflacao.Calcular(this);
+            inflacao?.Calcular(this);
         }
-        #endregion
+
+        #endregion Calculos
     }
 }

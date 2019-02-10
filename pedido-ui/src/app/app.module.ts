@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { LancheComponent } from './lanche/lanche.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
+import { PedidoComponent } from './pedido/pedido.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LancheComponent,
-    IngredientesComponent
+    IngredientesComponent,
+    PedidoComponent
   ],
   imports: [
     AlertModule.forRoot(),

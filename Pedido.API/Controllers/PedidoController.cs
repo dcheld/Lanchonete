@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pedido.Dominio;
+using Pedido.API.Fabrica;
+using Pedido.API.Model;
 using Pedido.Dominio.Interface;
 using System.Collections.Generic;
 
@@ -19,14 +20,14 @@ namespace Pedido.API.Controllers
         [HttpGet]
         public IEnumerable<Dominio.Pedido> Get()
         {
-            //return pedidoService.ObterLanches();
-            return null;
+            return pedidoService.ObterPedidos();
         }
 
         [HttpPost]
-        public void Post([FromBody] string lanche)
+        public void Post([FromBody] LancheModel lancheModel)
         {
-            //pedidoService.FecharPedido(new Dominio.Pedido(lanche), null);
+            var lanche = LancheFactory.Criar(lancheModel);
+            pedidoService.FecharPedido(new Dominio.Pedido(lanche), null);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IPromocaoCalculadora
     {
-        void Calcular(Pedido pedido);
+        void Registrar(Pedido pedido);
     }
 }

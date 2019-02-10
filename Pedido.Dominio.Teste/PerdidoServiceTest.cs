@@ -5,15 +5,16 @@ using Xunit;
 using Pedido.Dominio.Servico;
 using Pedido.Dominio.Interface;
 using NSubstitute;
+using Pedido.Dominio.Fabrica;
 
 namespace Pedido.Dominio.Teste
 {
-    public class PerdidoServicoTest
+    public class PerdidoServiceTest
     {
         private IPromocaoCalculadora promocaoCalculadora = Substitute.For<IPromocaoCalculadora>();
         private Inflacao inflacao = Substitute.For<Inflacao>();
         private Lanche lanche;
-        public PerdidoServicoTest()
+        public PerdidoServiceTest()
         {
             lanche = new Lanche(1000, "meu lanche", new List<LancheItem>()
             {
@@ -26,11 +27,11 @@ namespace Pedido.Dominio.Teste
         [Fact]
         public void FecharPedido()
         {
-            var pedidoService = new PedidoServico(promocaoCalculadora);
+            var pedidoService = new PedidoService(promocaoCalculadora);
             var pedido = new Pedido(lanche);
 
             pedidoService.FecharPedido(pedido, inflacao);
-            Assert.Equal(5.4m, pedido.Valor);
+            Assert.Equal(5.4m, pedido.Total);
         }
 
         [Theory]
@@ -38,12 +39,12 @@ namespace Pedido.Dominio.Teste
         [InlineData(11.40, 2)]
         public void AdicionarIngrediente(decimal valor, int quantidadeHamburgerCarne)
         {
-            var pedidoService = new PedidoServico(promocaoCalculadora);
+            var pedidoService = new PedidoService(promocaoCalculadora);
             var pedido = new Pedido(lanche);
 
             pedido.Adicionar(LancheItemFactory.HamburgerCarne(quantidadeHamburgerCarne));
             pedidoService.FecharPedido(pedido, inflacao);
-            Assert.Equal(valor, pedido.Valor);
+            Assert.Equal(valor, pedido.Total);
         }
 
         [Theory]
@@ -55,17 +56,17 @@ namespace Pedido.Dominio.Teste
         [InlineData(2.4, 10)]
         public void RemoverIngrediente(decimal valor, int quantidadeHamburgerCarneRemover)
         {
-            var pedidoService = new PedidoServico(promocaoCalculadora);
+            var pedidoService = new PedidoService(promocaoCalculadora);
             var pedido = new Pedido(lanche);
 
             pedido.Adicionar(LancheItemFactory.HamburgerCarne(3));
             pedidoService.FecharPedido(pedido, inflacao);
-            Assert.Equal(14.4M, pedido.Valor);
+            Assert.Equal(14.4M, pedido.Total);
 
 
             pedido.Remover(LancheItemFactory.HamburgerCarne(quantidadeHamburgerCarneRemover));
             pedidoService.FecharPedido(pedido, inflacao);
-            Assert.Equal(valor, pedido.Valor);
+            Assert.Equal(valor, pedido.Total);
         }
     }
 }

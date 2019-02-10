@@ -38,14 +38,8 @@ namespace Pedido.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
 
             app.UseCors("Acesso");
-
-            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

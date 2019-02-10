@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace Pedido.Dominio.Servico
 {
-    internal class PromocaoCalculadora : IPromocaoCalculadora
+    public class PromocaoCalculadora : IPromocaoCalculadora
     {
-        private readonly IEnumerable<IPromocaoItem> promocoesItens;
+        private readonly IList<IPromocaoItem> promocoesItens;
 
-        public PromocaoCalculadora(IEnumerable<IPromocaoItem> promocoesItens)
+        public PromocaoCalculadora(IList<IPromocaoItem> promocoesItens)
         {
             this.promocoesItens = promocoesItens;
         }
-        public void Calcular(Pedido pedido)
+        public void Registrar(Pedido pedido)
         {
             foreach (var promocaoItem in promocoesItens)
-                promocaoItem.Calcular(pedido);
+                promocaoItem.Registrar(pedido);
         }
     }
 }

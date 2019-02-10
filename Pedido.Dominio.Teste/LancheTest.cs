@@ -1,7 +1,4 @@
-﻿using Pedido.Dominio.Servico;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Pedido.Dominio.Fabrica;
 using Xunit;
 
 namespace Pedido.Dominio.Teste
@@ -14,7 +11,7 @@ namespace Pedido.Dominio.Teste
             var lanche = LancheFactory.XBacon();
             var pedido = new Pedido(lanche);
             pedido.Calcular();
-            Assert.Equal(6.50m, pedido.Valor);
+            Assert.Equal(6.50m, pedido.Total);
         }
 
         [Fact]
@@ -23,7 +20,7 @@ namespace Pedido.Dominio.Teste
             var lanche = LancheFactory.XBurger();
             var pedido = new Pedido(lanche);
             pedido.Calcular();
-            Assert.Equal(4.50m, pedido.Valor);
+            Assert.Equal(4.50m, pedido.Total);
         }
 
         [Fact]
@@ -32,7 +29,7 @@ namespace Pedido.Dominio.Teste
             var lanche = LancheFactory.XEgg();
             var pedido = new Pedido(lanche);
             pedido.Calcular();
-            Assert.Equal(5.30m, pedido.Valor);
+            Assert.Equal(5.30m, pedido.Total);
         }
 
         [Fact]
@@ -41,7 +38,7 @@ namespace Pedido.Dominio.Teste
             var lanche = LancheFactory.XEggBacon();
             var pedido = new Pedido(lanche);
             pedido.Calcular();
-            Assert.Equal(7.30m, pedido.Valor);
+            Assert.Equal(7.30m, pedido.Total);
         }
     }
 }

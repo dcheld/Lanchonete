@@ -1,0 +1,20 @@
+<div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Valor itens</th>
+          <th scope="col">Valor descotos</th>
+          <th scope="col">Valor Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pedido of pedido$ | async" >
+          <td scope="row"> {{ pedido.id }}</td>
+          <td>{{ pedido.itens  | currency:'BRL':true  }}</td>
+          <td>{{ pedido.desconto  | currency:'BRL':true  }}</td>
+          <td>{{ pedido.total  | currency:'BRL':true  }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

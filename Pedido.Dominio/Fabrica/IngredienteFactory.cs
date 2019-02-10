@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Pedido.Dominio.Servico
+namespace Pedido.Dominio.Fabrica
 {
     public class LancheItemFactory
     {

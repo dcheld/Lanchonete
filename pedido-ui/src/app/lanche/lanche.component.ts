@@ -31,6 +31,8 @@ export class LancheComponent implements OnInit {
 
   novoLanche() {
     this.lancheSelecionado = new LancheModel();
+    this.lancheSelecionado.id = 0;
+    this.lancheSelecionado.nome = 'Meu lanche';
     this.lancheSelecionado.lancheItens = this.lancheItens;
   }
 

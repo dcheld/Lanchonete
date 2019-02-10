@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PedidoService } from '../servico/pedido.service';
 import { LancheModel } from '../model/lanche-model';
@@ -14,7 +15,8 @@ export class IngredientesComponent implements OnInit {
 
   @Output() public cancelar: EventEmitter<any> = new EventEmitter();
 
-  constructor(private pedidoService: PedidoService) { }
+  constructor(private pedidoService: PedidoService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,7 +26,8 @@ export class IngredientesComponent implements OnInit {
   }
 
   onSubmit() {
-    this.pedidoService.inserir(this.lanche).subscribe();
+    this.pedidoService.inserir(this.lanche)
+      .subscribe(() => this.router.navigate(['/pedido']));
   }
 
   onCancelar() {

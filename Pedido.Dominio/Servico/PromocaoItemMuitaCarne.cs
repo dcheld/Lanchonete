@@ -14,11 +14,12 @@ namespace Pedido.Dominio.Servico
 
         public decimal Desconto { get; private set; }
 
-        public void Calcular(Pedido pedido)
+        public void Registrar(Pedido pedido)
         {
             this.pedido = pedido;
             QuantidadeCarne();
-            Valor();
+            if(pedidoItemCarne.Quantidade >= 3)
+                pedido.AdicionarPromocao(this);
         }
 
         private void QuantidadeCarne()
@@ -27,13 +28,10 @@ namespace Pedido.Dominio.Servico
             pedidoItemCarne = pedido.PedidoItens.FirstOrDefault(c => c.Ingrediente.Id == idIngredienteCarne);
         }
 
-        private void Valor()
+        public void Calcular()
         {
-            if (pedidoItemCarne != null)
-            {
-                var quantidadePromocao = pedidoItemCarne.Quantidade / 3;
-                Desconto = quantidadePromocao * pedidoItemCarne.Ingrediente.Valor;
-            }
+            var quantidadePromocao = pedidoItemCarne.Quantidade / 3;
+            Desconto = quantidadePromocao * pedidoItemCarne.Ingrediente.Valor;
         }
     }
 }
