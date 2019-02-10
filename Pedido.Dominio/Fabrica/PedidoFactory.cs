@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Pedido.Dominio.Fabrica
 {
@@ -9,6 +7,5 @@ namespace Pedido.Dominio.Fabrica
         public static IList<Pedido> PedidosFeitos { get; private set; } = new List<Pedido>();
 
         public static void Inserir(Pedido pedido) => PedidosFeitos.Add(pedido);
-
     }
 }

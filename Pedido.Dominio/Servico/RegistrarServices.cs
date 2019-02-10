@@ -12,7 +12,7 @@ namespace Pedido.Dominio.Servico.Registrar
             services.AddScoped<IPedidoService, PedidoService>();
             services.AddScoped<IPromocaoCalculadora, PromocaoCalculadora>();
             services.AddScoped<ILancheService, LancheService>();
-            
+
             services.AddScoped<IPromocaoCalculadora, PromocaoCalculadora>();
             services.AddScoped<IPromocaoItem, PromocaoItemLight>();
 

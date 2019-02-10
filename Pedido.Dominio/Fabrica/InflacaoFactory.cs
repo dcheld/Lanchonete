@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pedido.Dominio.Fabrica
+﻿namespace Pedido.Dominio.Fabrica
 {
     public static class InflacaoFactory
     {

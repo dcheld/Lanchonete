@@ -8,7 +8,7 @@
             Nome = nome;
             Valor = valor;
         }
-        
+
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public decimal Valor { get; private set; }

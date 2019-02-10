@@ -11,6 +11,7 @@ namespace Pedido.Dominio.Servico
         {
             this.promocoesItens = promocoesItens;
         }
+
         public void Registrar(Pedido pedido)
         {
             foreach (var promocaoItem in promocoesItens)

@@ -1,8 +1,5 @@
 ﻿using Pedido.Dominio.Fabrica;
 using Pedido.Dominio.Servico;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Pedido.Dominio.Teste
@@ -29,7 +26,7 @@ namespace Pedido.Dominio.Teste
         public void SemDescontoQuandoNaoTemAlfaceOuTemBacon(int quantidadeAlface, int quantidadeBacon)
         {
             var pedido = ObterPedido(quantidadeAlface, quantidadeBacon);
-           
+
             Assert.Equal(0, pedido.Desconto);
         }
 

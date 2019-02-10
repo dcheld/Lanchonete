@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq;
-using Pedido.Dominio.Dominio;
+﻿using Pedido.Dominio.Dominio;
 using Pedido.Dominio.Interface;
+using System.Linq;
 
 namespace Pedido.Dominio.Servico
 {
@@ -18,7 +17,7 @@ namespace Pedido.Dominio.Servico
         {
             this.pedido = pedido;
             QuantidadeCarne();
-            if(pedidoItemCarne.Quantidade >= 3)
+            if (pedidoItemCarne.Quantidade >= 3)
                 pedido.AdicionarPromocao(this);
         }
 

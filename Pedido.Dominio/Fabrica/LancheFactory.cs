@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Pedido.Dominio.Fabrica
 {
@@ -25,7 +23,7 @@ namespace Pedido.Dominio.Fabrica
 
             return new Lanche((int)LanchesEnum.XBacon, "X-Bacon", itens);
         }
-        
+
         public static Lanche XBurger()
         {
             var itens = new List<LancheItem>()

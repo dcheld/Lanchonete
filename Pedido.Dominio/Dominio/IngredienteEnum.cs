@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pedido.Dominio.Dominio
+﻿namespace Pedido.Dominio.Dominio
 {
     public enum IngredienteEnum
     {

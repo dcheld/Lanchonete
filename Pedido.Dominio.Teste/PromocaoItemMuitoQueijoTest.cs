@@ -7,7 +7,7 @@ namespace Pedido.Dominio.Teste
     public class PromocaoItemMuitoQueijoTest
     {
         private PromocaoItemMuitoQueijo promocao = new PromocaoItemMuitoQueijo();
-       
+
         [Theory]
         [InlineData(1, 0)]
         [InlineData(2, 0)]

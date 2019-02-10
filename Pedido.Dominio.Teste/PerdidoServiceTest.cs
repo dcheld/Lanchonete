@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
-using Pedido.Dominio.Servico;
-using Pedido.Dominio.Interface;
-using NSubstitute;
+﻿using NSubstitute;
 using Pedido.Dominio.Fabrica;
+using Pedido.Dominio.Interface;
+using Pedido.Dominio.Servico;
+using System.Collections.Generic;
+using Xunit;
 
 namespace Pedido.Dominio.Teste
 {
@@ -14,6 +12,7 @@ namespace Pedido.Dominio.Teste
         private IPromocaoCalculadora promocaoCalculadora = Substitute.For<IPromocaoCalculadora>();
         private Inflacao inflacao = Substitute.For<Inflacao>();
         private Lanche lanche;
+
         public PerdidoServiceTest()
         {
             lanche = new Lanche(1000, "meu lanche", new List<LancheItem>()
@@ -62,7 +61,6 @@ namespace Pedido.Dominio.Teste
             pedido.Adicionar(LancheItemFactory.HamburgerCarne(3));
             pedidoService.FecharPedido(pedido, inflacao);
             Assert.Equal(14.4M, pedido.Total);
-
 
             pedido.Remover(LancheItemFactory.HamburgerCarne(quantidadeHamburgerCarneRemover));
             pedidoService.FecharPedido(pedido, inflacao);

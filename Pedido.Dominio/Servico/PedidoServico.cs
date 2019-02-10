@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Pedido.Dominio.Fabrica;
+﻿using Pedido.Dominio.Fabrica;
 using Pedido.Dominio.Interface;
+using System.Collections.Generic;
 
 namespace Pedido.Dominio.Servico
 {
@@ -12,6 +12,7 @@ namespace Pedido.Dominio.Servico
         {
             this.promocaoCalculadora = promocaoService;
         }
+
         public void FecharPedido(Pedido pedido, Inflacao inflacao)
         {
             promocaoCalculadora.Registrar(pedido);
@@ -23,7 +24,7 @@ namespace Pedido.Dominio.Servico
 
         public IEnumerable<Pedido> ObterPedidos()
         {
-            return PedidoFactory.PedidosFeitos; 
+            return PedidoFactory.PedidosFeitos;
         }
     }
 }

@@ -8,12 +8,12 @@ namespace Pedido.Dominio
         public int Quantidade { get; private set; }
         public decimal Valor { get; private set; }
 
-        public LancheItem(int id, string nome, decimal valor, int quantidade=1):
+        public LancheItem(int id, string nome, decimal valor, int quantidade = 1) :
             this(new Ingrediente(id, nome, valor), quantidade)
         {
         }
 
-        public LancheItem(Ingrediente ingrediente):
+        public LancheItem(Ingrediente ingrediente) :
             this(ingrediente, 1)
         {
         }
@@ -24,16 +24,15 @@ namespace Pedido.Dominio
             Quantidade = quantidade;
         }
 
-
         public void Adicionar(int quantidade)
         {
-            if(quantidade > 0)
+            if (quantidade > 0)
                 Quantidade += quantidade;
         }
 
         public void Remover(int quantidade)
         {
-            Quantidade = Math.Max(0 , Quantidade - Math.Abs(quantidade));
+            Quantidade = Math.Max(0, Quantidade - Math.Abs(quantidade));
         }
 
         public void Calcular()

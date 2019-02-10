@@ -1,8 +1,5 @@
 ﻿using Pedido.Dominio.Fabrica;
 using Pedido.Dominio.Servico;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Pedido.Dominio.Teste
@@ -15,7 +12,6 @@ namespace Pedido.Dominio.Teste
         {
         }
 
-       
         [Theory]
         [InlineData(1, 0)]
         [InlineData(2, 0)]
