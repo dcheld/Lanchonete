@@ -1,14 +1,14 @@
 # Lanchonete
 
-Este software é uma solução proposta para para uma _startup_ de lanchonete. Para desenvolvê-las foram utilizadas as tecnologias de .net Core para o _Backend_ e Angular 7 para o _Frontend_.
+Este software é uma solução proposta para para uma _startup_ de lanchonete. Para desenvolvê-la foram utilizadas as tecnologias de .net Core para o _Backend_ e Angular 7 para o _Frontend_.
 
 ## Instruções para rodar o sistema
 
 O sistema foi desenvolvido utilizando containers no docker. Com o docker devidamente instalado siga as seguintes instruções:
 
-Para iniciar o sistema bastar entra na patas Lanchonete e executar o appstart.bat. Depois de iniciado todos os serviços do docker o sistema em angular vai responder em [http://localhost](http://localhost) (está utilizando a porta 80). O backend irá responder em [http://localhost:5000/api/values](http:localhost:5000/api/values).
+Para iniciar o sistema bastar entra na pastas Lanchonete e executar o appstart.bat. Depois de iniciado todos os serviços do docker, o sistema de _Frontend_ vai responder em [http://localhost](http://localhost) (está utilizando a porta 80). O backend irá responder em [http://localhost:5000/api/values](http:localhost:5000/api/values).
 
-Após terminado o teste o sistema pode ser desligado usando o appstop.bat.
+Para desligar o sistema use o appstop.bat.
 
 ## Problema proposto
 
@@ -43,9 +43,9 @@ Inflação Os valores dos ingredientes são alterados com frequência e não gas
 
 ## Solução implementa
 
-A solução implementa foi utilizando um Backend feito em dotnet core. O backend é uma API Rest que vai receber as solicitações da aplicação de Frontend, sua responsabilidade é realizar os c'alculos dos lanches e realizar a persistência das informações. Para desenvolvmento da api foi utilizado o Visual Studio 2017 Community.
+A solução implementa foi utilizando um Backend feito em dotnet core. O backend é uma API Rest que vai receber as solicitações da aplicação de Frontend, sua responsabilidade é realizar os cálculos dos lanches e realizar a persistência das informações. Para desenvolvmento da _API_ foi utilizado o Visual Studio 2017 Community.
 
-A aplicação de Frontend feito em Angular, tem como responsabilidade exibir de forma intuitiva os lanches permitindo a customização dos lanches e por fim fazer a comunicação com o backend para persistir os dados. Para desenvolvimento do frontend foi utilizado o Visual Studio Code
+A aplicação de _frontend_ feita em Angular, e tem como responsabilidade exibir de forma intuitiva os lanches permitindo a customização dos lanches e por fim fazer a comunicação com o _backend_ para persistir os dados. Para desenvolvimento do _frontend_ foi utilizado o Visual Studio Code
 
 ### Backend
 
