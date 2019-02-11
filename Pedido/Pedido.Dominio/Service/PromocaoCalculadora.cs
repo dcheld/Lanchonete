@@ -1,7 +1,7 @@
 ﻿using Pedido.Dominio.Interface;
 using System.Collections.Generic;
 
-namespace Pedido.Dominio.Servico
+namespace Pedido.Dominio.Service
 {
     public class PromocaoCalculadora : IPromocaoCalculadora
     {

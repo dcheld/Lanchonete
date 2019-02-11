@@ -1,6 +1,6 @@
 ﻿namespace Pedido.API.Model
 {
-    public class IngredienteModel
+    public class IngredienteViewModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }

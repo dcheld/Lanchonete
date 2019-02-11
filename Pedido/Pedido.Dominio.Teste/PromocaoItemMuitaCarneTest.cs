@@ -1,5 +1,5 @@
 ﻿using Pedido.Dominio.Fabrica;
-using Pedido.Dominio.Servico;
+using Pedido.Dominio.Service;
 using Xunit;
 
 namespace Pedido.Dominio.Teste

@@ -2,10 +2,10 @@
 
 namespace Pedido.API.Model
 {
-    public class LancheModel
+    public class LancheViewModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public IList<LancheItemModel> LancheItens { get; set; }
+        public IList<LancheItemViewModel> LancheItens { get; set; }
     }
 }

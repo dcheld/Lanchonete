@@ -1,7 +1,7 @@
 ﻿using NSubstitute;
 using Pedido.Dominio.Fabrica;
 using Pedido.Dominio.Interface;
-using Pedido.Dominio.Servico;
+using Pedido.Dominio.Service;
 using System.Collections.Generic;
 using Xunit;
 

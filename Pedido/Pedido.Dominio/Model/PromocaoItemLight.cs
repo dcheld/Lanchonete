@@ -2,7 +2,7 @@
 using Pedido.Dominio.Interface;
 using System.Linq;
 
-namespace Pedido.Dominio.Servico
+namespace Pedido.Dominio
 {
     public class PromocaoItemLight : IPromocaoItem
     {

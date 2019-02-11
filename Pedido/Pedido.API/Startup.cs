@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pedido.Dominio.Servico.Registrar;
+using Pedido.Dominio.Service.Registrar;
 
 namespace Pedido.API
 {

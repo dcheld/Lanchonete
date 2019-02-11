@@ -3,7 +3,7 @@ using Pedido.Dominio.Interface;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Pedido.Dominio.Servico.Registrar
+namespace Pedido.Dominio.Service.Registrar
 {
     public static class RegistrarServicesExtensao
     {

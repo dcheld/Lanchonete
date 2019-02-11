@@ -24,7 +24,7 @@ namespace Pedido.API.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] LancheModel lancheModel)
+        public void Post([FromBody] LancheViewModel lancheModel)
         {
             var lanche = LancheFactory.Criar(lancheModel);
             pedidoService.FecharPedido(new Dominio.Pedido(lanche), null);
