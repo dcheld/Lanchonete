@@ -1,4 +1,4 @@
-﻿using Pedido.Dominio.Fabrica;
+﻿using Pedido.Dominio.Factory;
 using Pedido.Dominio.Service;
 using Xunit;
 

@@ -1,4 +1,4 @@
-﻿using Pedido.Dominio.Fabrica;
+﻿using Pedido.Dominio.Factory;
 using Xunit;
 
 namespace Pedido.Dominio.Teste

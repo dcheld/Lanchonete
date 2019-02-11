@@ -1,4 +1,4 @@
-﻿namespace Pedido.Dominio.Fabrica
+﻿namespace Pedido.Dominio.Factory
 {
     public static class InflacaoFactory
     {

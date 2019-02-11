@@ -3,7 +3,7 @@ using Pedido.Dominio;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Pedido.API.Fabrica
+namespace Pedido.API.Factory
 {
     public static class LancheFactory
     {

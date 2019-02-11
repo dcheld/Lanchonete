@@ -1,5 +1,5 @@
 ﻿using NSubstitute;
-using Pedido.Dominio.Fabrica;
+using Pedido.Dominio.Factory;
 using Pedido.Dominio.Interface;
 using Pedido.Dominio.Service;
 using System.Collections.Generic;

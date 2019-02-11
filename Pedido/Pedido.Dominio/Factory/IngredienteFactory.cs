@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Pedido.Dominio.Fabrica
+namespace Pedido.Dominio.Factory
 {
     public class LancheItemFactory
     {

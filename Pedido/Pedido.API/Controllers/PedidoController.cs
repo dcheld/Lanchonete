@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pedido.API.Fabrica;
+using Pedido.API.Factory;
 using Pedido.API.Model;
 using Pedido.Dominio.Interface;
 using System.Collections.Generic;
