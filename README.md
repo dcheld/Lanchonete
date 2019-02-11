@@ -91,7 +91,7 @@ A tela Pedido lista todos os pedidos feitos pelos clientes.
 
 ## Implementações futuras
 
-* Sistema para persistência dos lanches
+* Sistema para persistência dos lanches, ingredientes, pedidos
 * Utilização de Https no backend e frontend
 
 
