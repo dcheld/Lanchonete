@@ -1,12 +1,12 @@
 # Lanchonete
 
-Este software é uma solução proposta para para uma _startup_ de lanchonete. Para desenvolvê-las foram utilizadas as tecnolígias de .net Core para o _Backend_ e Angular 7 para o _Frontend_.
+Este software é uma solução proposta para para uma _startup_ de lanchonete. Para desenvolvê-las foram utilizadas as tecnologias de .net Core para o _Backend_ e Angular 7 para o _Frontend_.
 
 ## Instruções para rodar o sistema
 
 O sistema foi desenvolvido utilizando containers no docker. Com o docker devidamente instalado siga as seguintes instruções:
 
-Para inciar o sistema bastar entra na patas Lanchonete e executar o appstart.bat. Depois de iniciado todos os serviços do docker o sistema em angular vai responder em [http://localhost](http://localhost) (está utilizando a porta 80). O backend irá responder em [http://localhost:5000/api/values](http:localhost:5000/api/values).
+Para iniciar o sistema bastar entra na patas Lanchonete e executar o appstart.bat. Depois de iniciado todos os serviços do docker o sistema em angular vai responder em [http://localhost](http://localhost) (está utilizando a porta 80). O backend irá responder em [http://localhost:5000/api/values](http:localhost:5000/api/values).
 
 Após terminado o teste o sistema pode ser desligado usando o appstop.bat.
 
@@ -45,11 +45,11 @@ Inflação Os valores dos ingredientes são alterados com frequência e não gas
 
 A solução implementa foi utilizando um Backend feito em dotnet core. O backend é uma API Rest que vai receber as solicitações da aplicação de Frontend, sua responsabilidade é realizar os c'alculos dos lanches e realizar a persistência das informações. Para desenvolvmento da api foi utilizado o Visual Studio 2017 Community.
 
-A aplicação de Frontend feito em Angular, tem como responsabilidade exibir de forma intuitiva os lanches permitindo a customazação dos lanches e por fim fazer a comunicação com o backend para persistir os dados. Para desenvolvimento do frontend foi utilizado o Visual Studio Code
+A aplicação de Frontend feito em Angular, tem como responsabilidade exibir de forma intuitiva os lanches permitindo a customização dos lanches e por fim fazer a comunicação com o backend para persistir os dados. Para desenvolvimento do frontend foi utilizado o Visual Studio Code
 
 ### Backend
 
-O Backend foi desenvolvido pensando numa arquitetura o mais próximo o possível de microserviços, devido a simplicida e por não existir persistências o sistema foi separado em duas camadas: API e Domínio.
+O Backend foi desenvolvido pensando numa arquitetura o mais próximo o possível de microserviços, devido a simplicidade e por não existir persistências o sistema foi separado em duas camadas: API e Domínio.
 
 #### Camada API
 
@@ -68,14 +68,14 @@ Esse modelo de foi organizado na pasta _Model_. Abaixa uma lista das classes e s
 * PromocaoItemLight, PromocaoItemMuitaCarne, PromocaoItemMuitoQueijo - Verifica se uma pedido pode receber o desconto da promoção e calcula o valor de desconto.
 
 As classe de comunicação com a API são os _Services_. Essas classes tem como responsabilidade orquestrar o processo de negócio. Abaixo uma pequena descrição das classes principais:
-* PerdidoService - essa classe tem como responsabilidade orquestrar a processo de negócio do pedido, aplicando as promoções validas, realizando a chamada do cálculo do pedido, sua ultima reponsábilidade é delegar a persistência do pedido
+* PerdidoService - essa classe tem como responsabilidade orquestrar a processo de negócio do pedido, aplicando as promoções validas, realizando a chamada do cálculo do pedido, sua ultima reponsabilidade é delegar a persistência do pedido
 * PromocaoService - Funciona como espécie de _composite_ onde todas as promoções são listadas e aplicadas ao pedido
 
 Para simular o banco de dados foram criadas _factories_. As _factories_ ficam nesse projeto na pasta _Factory_.
 
 #### Projeto de teste
 
-O projeto de teste foi criado para permitir o fácil _refactory_ do fonte e para trazer uma segurança no desenvolvimento. Foram criados teste paras as pricipais funcionalidades do sistema. Para desenvolvimento do teste foi usado o xUnit.
+O projeto de teste foi criado para permitir o fácil _refactor_ do fonte e para trazer uma segurança no desenvolvimento. Foram criados teste paras as pricipais funcionalidades do sistema. Para desenvolvimento do teste foi usado o xUnit.
 
 ### Frontend
 
