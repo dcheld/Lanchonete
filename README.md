@@ -49,4 +49,49 @@ A aplicação de Frontend feito em Angular, tem como responsabilidade exibir de 
 
 ### Backend
 
+O Backend foi desenvolvido pensando numa arquitetura o próxima o possível de microsirviços, devido a simplicida e por existir persistências o sistema foi separado em duas camadas: API e Domínio.
+
+#### Camada API
+
+A camada de API é utilizada principalmente para realizar a comunicação do mundo externo ao Domínio. Outra responsábilidade da camada é fazer a conversão dos tipos que são enviados pelo cliente para os tipos conhecidos pelo Domínio, as classes que fazem essa conversão ficam na pasta _Factory_. Os tipos que usados para comunicação com o mundo externo são chamados de _ViewModel_.
+
+#### Camanda Domínio
+
+A camada de Domínio foi projetada para seguir um modelo de domínio rico. Dentro desse projeto foram adicionados as classes de Domínio que são representações do objetos que encontramos no sistema que incluen: lanches, pedidos, ingredientes, etc.
+
+Esse modelo de foi organizado na pasta Model. Abaixa uma lista das classes e suas funções:
+* Inflacao - Classe que representa a a inflação do lanche. Ela possui internamente o valor da inflação e regra de cálculo
+* Ingrediente - representa um ingrediente do lanche tendo um valor e nome.
+* Lanche - Suas instâncias representam os lanches oferecidos pela pela statup Lanchonete.
+* LancheItem - Cada lanche pode possuir ingrediente diferente e com quantidades diferentes. Esse classe ainda permite aumentar/dimunuir a quantidade de um ingrediente
+* Pedido - O pedido é a classe responsável por agrupar todos os itens de um lanche, nele também são registradas as promoções válidas. Depois de todas as modificações feitas no lanches ele irá calcular o valor final do lanche.
+* PromocaoItemLight, PromocaoItemMuitaCarne, PromocaoItemMuitoQueijo - Verifica se uma pedido pode receber o desconto da promoção e calcula o valor de desconto.
+
+As classe de comunicação com a API são os _Services_. Essas classes tem como responsabilidade orquestrar o processo de negócio. Abaixo uma pequena descrição das classes principais:
+* PerdidoService - essa classe tem como responsabilidade orquestrar a processo de negócio do pedido, aplicando as promoções validas, realizando a chamada do cálculo do pedido, sua ultima reponsábilidade é delegar a persistência do pedido
+* PromocaoService - Funciona como espécie de _composite_ onde todas as promoções são listadas e aplicadas ao pedido
+
+Para simular o banco de dados foram criadas _factories_. As _factories_ ficam nesse projeto na pasta _Factory_.
+
+#### Projeto de teste
+
+O projeto de teste foi criado para permitir o fácil _refactory_ do fonte e para trazer uma segurança no desenvolvimento. Foram criados teste paras as pricipais funcionalidades do sistema. Para desenvolvimento do teste foi usado o xUnit.
+
+### Frontend
+
+O sistema de _Frontend_ apresenta duas telas: Lanche e Pedido.
+
+Na tela de Lanche são listados todos os lanches diponíveis pelo sistema, ao selecionar o lanche é listado abixo quais são os seus ingredientes. A quantidade de cada ingrediente pode ser modifica, então o cliente pode finalizar o pedido ou cancelar.
+
+Também posível criar um lanche customiza. Nessa opção são exibidas todos os ingredientes ao cliente pode modificar a quantidade de cada um.
+
+Se o cliente decidir fechar o pedido o sistema de frontend iria enviar o lanche criado pelo cliente para o backend que ficará resposável por realizar os calculos. Quando terminado os calculos o cliente será redirecionado para a tela de Pedido.
+
+A tela Pedido lista todos os pedidos feitos pelos clientes.
+
+## Implementações futuras
+
+* Sistema para persistência dos lanches
+* Utilização de Https no backend e frontend
+
 
