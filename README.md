@@ -40,3 +40,13 @@ Light Se o lanche tem alface e não tem bacon, ganha 10% de desconto.
 Muita carne A cada 3 porções de carne o cliente só paga 2. Se o lanche tiver 6 porções, ocliente pagará 4. Assim por diante...
 Muito queijo A cada 3 porções de queijo o cliente só paga 2. Se o lanche tiver 6 porções, ocliente pagará 4. Assim por diante...
 Inflação Os valores dos ingredientes são alterados com frequência e não gastaríamos que isso influenciasse nos testes automatizados.
+
+## Solução implementa
+
+A solução implementa foi utilizando um Backend feito em dotnet core. O backend é uma API Rest que vai receber as solicitações da aplicação de Frontend, sua responsábilidade é realizar os calculos dos lanches e realizar a persistência das informações. Para desenvolvmento da api foi utilizado o Visual Studio 2017 Community.
+
+A aplicação de Frontend feito em Angular, tem como responsabilidade exibir de forma intuitiva os lanches permitindo a customazação dos lanches e por fim fazer a comunicação com o backend para persistir os dados. Para desenvolvimento do frontend foi utilizado o Visual Studio Code
+
+### Backend
+
+
