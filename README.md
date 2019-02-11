@@ -2,7 +2,7 @@
 
 Este software é uma solução proposta para para uma startup de lanchonete. Para desenvolvê-las foram utilizadas as tecnoligias de .net core para o backend e angular 7 para o frontend.
 
-## Intruções para rodar o sistema
+## Instruções para rodar o sistema
 
 O sistema foi desenvolvido utilizando containers no docker. Com o docker devidamenta instalado siga as seguintes instruções:
 
