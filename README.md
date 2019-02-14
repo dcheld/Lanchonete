@@ -95,3 +95,6 @@ A tela Pedido lista todos os pedidos feitos pelos clientes.
 * Utilização de Https no backend e frontend
 
 
+## Referência
+
+* https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
